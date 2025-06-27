@@ -13,8 +13,6 @@ public class Duve3utilsClient implements ClientModInitializer {
     // That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    private final boolean initialized = false;
-
     //private final Display display = new Display(this);
 
     @Override
