@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "duve3utils",
+  "version": "${version}",
+  "name": "Duve3Utils",
+  "description": "has a bunch of utility stuff for the client",
+  "authors": ["Duve3"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "icon.jpg",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.duve3.duve3utils.client.Duve3utilsClient"
+    ],
+    "main": [
+      "me.duve3.duve3utils.Duve3utils"
+    ]
+  },
+  "mixins": [
+    "duve3utils.mixins.json",
+    {
+      "config": "duve3utils.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "minecraft": "${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": "*",
+    "fabric-key-binding-api-v1": "*"
+  }
+}
