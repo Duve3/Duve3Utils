@@ -2,9 +2,12 @@
   "required": true,
   "minVersion": "0.8",
   "package": "me.duve3.duve3utils.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "AbstractContainerScreenAccessor",
+    "HotbarMixin"
   ],
+  "mixins": [],
   "injectors": {
     "defaultRequire": 1
   }
