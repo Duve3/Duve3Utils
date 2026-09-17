@@ -16,7 +16,7 @@ public class HotbarMixin {
     // Injects right when the player attempts to drop an item from the hotbar
     @Inject(method = "drop(Z)Z", at = @At("HEAD"), cancellable = true)
     private void duve3utils$onDropItem(boolean all, CallbackInfoReturnable<Boolean> cir) {
-        if (ModConfig.getInstance().hotbarProtection) {
+        if (ModConfig.getInstance().isHotbarProtection()) {
             LocalPlayer player = (LocalPlayer) (Object) this;
 
             // Ignore empty hands
@@ -25,8 +25,8 @@ public class HotbarMixin {
             Item mainHandItem = player.getMainHandItem().getItem();
 
             // If the item is NOT on the allow-list, cancel the drop!
-            if (!ModConfig.getInstance().blacklistedItems.contains(mainHandItem)) {
-                if (ModConfig.getInstance().showMessage) {
+            if (!ModConfig.getInstance().getBlacklistedItems().contains(mainHandItem)) {
+                if (ModConfig.getInstance().isShowMessage()) {
                     player.sendOverlayMessage(
                             Component.literal("You disabled dropping items!").withStyle(ChatFormatting.RED)
                     );

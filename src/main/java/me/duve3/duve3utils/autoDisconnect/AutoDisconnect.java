@@ -22,11 +22,11 @@ public class AutoDisconnect {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null) return;
-            if (!ModConfig.getInstance().autoDisconnectEnabled) return;
+            if (!ModConfig.getInstance().isAutoDisconnectEnabled()) return;
 
-            if (getCurrentTime() - joinedAt < ModConfig.getInstance().safeDuration) return;
+            if (getCurrentTime() - joinedAt < ModConfig.getInstance().getSafeDuration()) return;
 
-            if (client.player.getHealth() <= ModConfig.getInstance().minHealth) {
+            if (client.player.getHealth() <= ModConfig.getInstance().getMinHealth()) {
                 client.player.sendOverlayMessage(Component.literal("[AutoDisconnect] Disconnecting due to health!"));
                 client.disconnectFromWorld(Component.literal("[AutoDisconnect] Automatically disconnected due to health!"));
             }
